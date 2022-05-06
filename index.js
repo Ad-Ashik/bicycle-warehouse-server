@@ -20,7 +20,7 @@ async function run() {
         await client.connect();
         const bicycleCollection = client.db("cycleHouse").collection("cycles");
 
-        // get bicycle api
+        // get all bicycle api
         app.get('/cycles', async (req, res) => {
             const query = {};
             const cursor = bicycleCollection.find(query);
