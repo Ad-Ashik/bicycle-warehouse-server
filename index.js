@@ -28,7 +28,7 @@ async function run() {
             res.send(resutl);
         });
 
-        // get one bicycle api
+        // get one cycle api
         app.get('/cycles/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
