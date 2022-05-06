@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const { get } = require('express/lib/response');
 
 const app = express();
@@ -26,6 +26,15 @@ async function run() {
             const cursor = bicycleCollection.find(query);
             const resutl = await cursor.toArray();
             res.send(resutl);
+        });
+
+        // get one bicycle api
+        app.get('/cycles/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const resutl = await bicycleCollection.findOne(query);
+            res.send(resutl);
+
         })
 
     }
