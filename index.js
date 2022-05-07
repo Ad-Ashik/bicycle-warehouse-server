@@ -20,6 +20,7 @@ async function run() {
         await client.connect();
         const bicycleCollection = client.db("cycleHouse").collection("cycles");
         const cycleDetailes = client.db("cycleHouse").collection("cycleDetailes");
+        const accessoricsCollection = client.db("cycleHouse").collection("accessores");
 
         // get all bicycle api
         app.get('/cycles', async (req, res) => {
@@ -45,6 +46,14 @@ async function run() {
             const resutl = await cursor.toArray();
             res.send(resutl);
         });
+
+        // get accessorics items
+        app.get('/accessorics', async (req, res) => {
+            const query = {};
+            const cursor = accessoricsCollection.find(query);
+            const resutl = await cursor.toArray();
+            res.send(resutl)
+        })
 
     }
     finally { }
