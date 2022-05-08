@@ -60,6 +60,14 @@ async function run() {
             res.send(resutl)
         });
 
+        // add cycle post
+        app.post('/cycle', async (req, res) => {
+            const cycle = req.body;
+            const resutl = await bicycleCollection.insertOne(cycle);
+            res.send(resutl);
+
+        })
+
         // Delete api
         app.delete('/cycles/:id', async (req, res) => {
             const id = req.params.id;
