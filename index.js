@@ -61,12 +61,12 @@ async function run() {
         });
 
         // add cycle post
-        app.post('/cycle', async (req, res) => {
-            const cycle = req.body;
-            const resutl = await bicycleCollection.insertOne(cycle);
-            res.send(resutl);
+        // app.post('/cycle', async (req, res) => {
+        //     const cycle = req.body;
+        //     const resutl = await bicycleCollection.insertOne(cycle);
+        //     res.send(resutl);
 
-        });
+        // });
 
         // add quantity post
         app.post('/quantity', async (req, res) => {
