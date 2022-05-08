@@ -58,7 +58,16 @@ async function run() {
             const cursor = accessoricsCollection.find(query);
             const resutl = await cursor.toArray();
             res.send(resutl)
-        })
+        });
+
+        // Delete api
+        app.delete('/cycles/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const resutl = await bicycleCollection.deleteOne(query);
+            res.send(resutl)
+
+        });
 
     }
     finally { }
