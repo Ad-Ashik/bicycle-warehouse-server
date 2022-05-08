@@ -66,7 +66,14 @@ async function run() {
             const resutl = await bicycleCollection.insertOne(cycle);
             res.send(resutl);
 
-        })
+        });
+
+        // add quantity post
+        app.post('/quantity', async (req, res) => {
+            const addQuantity = req.body;
+            const result = await serviceCollection.insertOne(addQuantity);
+            res.send(result);
+        });
 
         // Delete api
         app.delete('/cycles/:id', async (req, res) => {
